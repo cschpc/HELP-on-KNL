@@ -29,10 +29,10 @@ A brute-force sweep over relevant run-time parameters was carried out. The run s
 
 The best results from the sweep are as follows.
 
-| 1-w HT (64 MPI tasks) | |
-| 2-w HT (128 MPI tasks) | |
-| 4-w HT (256 MPI tasks) | |
-| Reference (2 x HSW) | | 
+| 1-w HT (64 MPI tasks) | xx s |
+| 2-w HT (128 MPI tasks) | yy s |
+| 4-w HT (256 MPI tasks) | zz s |
+| Reference (2 x HSW) | xx s| 
 
 The reference result was obtained with one node of a Cray XC40, featuring two 12c 2.6 GHz Haswell processors and run 
 with one-way hyperthreading, i.e. 24 MPI tasks.
