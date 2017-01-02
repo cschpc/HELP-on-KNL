@@ -31,14 +31,19 @@ The best results from the sweep are as follows.
 
 | Run | Runtime (s) |
 |-----|-------------|
-| 1-w HT (64 MPI tasks) | xx  |
-| 2-w HT (128 MPI tasks) | yy  |
-| 4-w HT (256 MPI tasks) | zz  |
+| 1-w HT (64 MPI tasks) | 28.6  |
+| 2-w HT (128 MPI tasks) | 33.5  |
+| 4-w HT (256 MPI tasks) | 51.5  |
 | Reference (2 x HSW) | xx | 
 
 The reference result was obtained with one node of a Cray XC40, featuring two 12c 2.6 GHz Haswell processors and run 
 with one-way hyperthreading, i.e. 24 MPI tasks.
 
 ### Analysis
+
+The increase in times from oversubscribing the cores seem to arise from MPI overhead (wait times of both Isends and Irecvs). 
+The MPI times of 1-w HT on KNL and on one Haswell node are in line and the difference arises from the lower
+clock frequency of KNL.
+
 
 ## Conclusions and outlook
