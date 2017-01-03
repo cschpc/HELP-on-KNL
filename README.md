@@ -53,7 +53,7 @@ The performance difference between one Haswell node and one KNL seems to arise b
 floating-point performance (10 us vs 6 us), and, to a lesser degree, from larger MPI wait times on KNL. Clearly the pure-MPI
 version of the code is not optimal for KNL. The profile is quite flat i.e. the execution time is spread over multiple routines. 
 4 most intensive routines consuming ~10% of the execution time each are not really employing AVX512 vectorization,
-basing on a rudimentary compiler feedback analysis.
+basing on a rudimentary compiler feedback analysis and the abovementioned floating-point performance figures.
 
 ## Conclusions and outlook
 
