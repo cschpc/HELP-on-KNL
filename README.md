@@ -51,12 +51,15 @@ therefore the one-way hyperthreading is the best option. On KNL, the time requir
 
 The performance difference between one Haswell node and one KNL seems to arise both in slower site updates i.e. 
 floating-point performance (10 us vs 6 us), and, to a lesser degree, from larger MPI wait times on KNL. Clearly the pure-MPI
-version of the code is not optimal for KNL.
-
+version of the code is not optimal for KNL. The profile is quite flat i.e. the execution time is spread over multiple routines. 
+4 most intensive routines consuming ~10% of the execution time each are not really employing AVX512 vectorization,
+basing on a rudimentary compiler feedback analysis.
 
 ## Conclusions and outlook
 
 The main prospects for Level-1 work lie in completion of the threaded version. The developers do not have very much
 ambitions in this direction (but rather working intensively on optimization of a multi-GPU version of the code), and the 
-person who made the early attempts has already left the group.
+person who made the early attempts has already left the group. In addition, in order to improve the AVX512 utilization, many 
+of the underlying data structures need to be revised.
+
 
