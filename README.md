@@ -1,17 +1,18 @@
 # HELP on KNL
 
 ## HELP
-HELP (Helsinki Lattice Package) is a Quantum Chronodynamics (QCD) code developed at the Department of Physics,
+HELP (Helsinki Lattice Package) is a Quantum Chromodynamics (QCD) code developed at the Department of Physics,
 University of Helsinki. It has been developed for several years and contains a bunch of different models. It is not
 licensed under any OS license per se but available upon request for academic use.
 
 ## Porting
 
 The pure-MPI version of the code was straightforward to compile by simple adapting the makefiles to use Intel compilers.
-The makefiles are available in this branch.
+The adapted makefiles are available in this branch.
 
 There is an experimental (and apparantly unfinished) OpenMP version of the code, but that does not work (but segfaults) at least
-with the test cases we had. This is the case also with other compilers (GNU) and on other platforms (Cray XC40 with Haswell CPUs).
+with the test cases we had. This is the case also with other compilers (GNU) and on other platforms (Cray XC40 with 
+Haswell CPUs).
 
 ## Performance
 
@@ -47,3 +48,7 @@ clock frequency of KNL.
 
 
 ## Conclusions and outlook
+
+The main prospects for Level-1 work lie in completion of the threaded version. The developers do not have very much
+ambitions in this direction, and the person who made the early attempts has already left the group.
+
