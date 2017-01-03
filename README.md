@@ -50,10 +50,14 @@ The increase in times from oversubscribing the cores seem to arise from MPI over
 therefore the one-way hyperthreading is the best option. On KNL, the time required for one site update 
 
 The performance difference between one Haswell node and one KNL seems to arise both in slower site updates i.e. 
-floating-point performance (10 us vs 6 us), and, to a lesser degree, from larger MPI wait times on KNL. Clearly the pure-MPI
-version of the code is not optimal for KNL. The profile is quite flat i.e. the execution time is spread over multiple routines. 
-4 most intensive routines consuming ~10% of the execution time each are not really employing AVX512 vectorization,
-basing on a rudimentary compiler feedback analysis and the abovementioned floating-point performance figures.
+floating-point performance (10 us vs 6 us), and, to a lesser degree, from larger MPI wait times on KNL. In any case,
+clearly the pure-MPI version of the code is not optimal for KNL. 
+
+The profile is quite flat i.e. the execution time is spread over multiple routines. 
+4 most intensive routines consuming ~10% of the execution time each are not really employing AVX-512 vectorization,
+basing on a rudimentary compiler feedback analysis and the abovementioned floating-point performance figures. Forcing
+the compiler to vectorize parts it considers not beneficial for vectorization (-vec-threshold0) did not improve the 
+performance, thus more intruisive changes are needed to utilize AVX-512 instructions properly.
 
 ## Conclusions and outlook
 
