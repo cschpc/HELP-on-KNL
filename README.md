@@ -35,16 +35,23 @@ The best results from the sweep are as follows.
 | 1-w HT (64 MPI tasks) | 28.6  |
 | 2-w HT (128 MPI tasks) | 33.5  |
 | 4-w HT (256 MPI tasks) | 51.5  |
-| Reference (2 x HSW) | xx | 
+| HSW Reference (16 MPI tasks) | 17.2 |
+| HSW Reference (32 MPI tasks) | 10.6 |
 
 The reference result was obtained with one node of a Cray XC40, featuring two 12c 2.6 GHz Haswell processors and run 
-with one-way hyperthreading, i.e. 24 MPI tasks.
+with one-way hyperthreading. The decomposition does not allow for 24 MPI tasks, hence results with 16 (in one node) and 
+32 tasks (in two nodes) are given. An extrapolation of those for one full 24-core node would be 13.8 s.
+
+One can thus argue that the performance of a single KNL is 50-60% that of a dual-socket Haswell node.
 
 ### Analysis
 
-The increase in times from oversubscribing the cores seem to arise from MPI overhead (wait times of both Isends and Irecvs). 
-The MPI times of 1-w HT on KNL and on one Haswell node are in line and the difference arises from the lower
-clock frequency of KNL.
+The increase in times from oversubscribing the cores seem to arise from MPI overhead (wait times of both Isends and Irecvs),
+therefore the one-way hyperthreading is the best option. On KNL, the time required for one site update 
+
+The performance difference between one Haswell node and one KNL seems to arise both in slower site updates i.e. 
+floating-point performance (10 us vs 6 us), and, to a lesser degree, from larger MPI wait times on KNL. Clearly the pure-MPI
+version of the code is not optimal for KNL.
 
 
 ## Conclusions and outlook
