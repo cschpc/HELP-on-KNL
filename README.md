@@ -57,5 +57,6 @@ version of the code is not optimal for KNL.
 ## Conclusions and outlook
 
 The main prospects for Level-1 work lie in completion of the threaded version. The developers do not have very much
-ambitions in this direction, and the person who made the early attempts has already left the group.
+ambitions in this direction (but rather working intensively on optimization of a multi-GPU version of the code), and the 
+person who made the early attempts has already left the group.
 
