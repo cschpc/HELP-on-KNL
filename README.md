@@ -9,8 +9,8 @@ licensed under any OS license per se but available upon request for academic use
 
 The pure-MPI version of the code was straightforward to compile by simple adapting the makefiles to use Intel compilers. The
 change was to change in the files wilson/Make_linux_mpi and libraries/Make_vanilla the lines
-CC = mpiicc
-OPT = -O3 -xMIC-AVX512 -ip -fp-model fast=2
+`CC = mpiicc
+OPT = -O3 -xMIC-AVX512 -ip -fp-model fast=2`
 
 There is an experimental (and apparantly unfinished) OpenMP version of the code, but that does not work (but segfaults) at least
 with the test cases we had. This is the case also with other compilers (GNU) and on other platforms (Cray XC40 with 
