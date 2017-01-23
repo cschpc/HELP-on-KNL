@@ -1,9 +1,9 @@
 #!/bin/bash
 export MKL_FAST_MEMORY_LIMIT=0
 export I_MPI_SHM_LMT=direct
-#export KMP_STACKSIZE=536870912
-#ulimit -s unlimited
-for j in 1 2 #4
+export KMP_STACKSIZE=536870912
+ulimit -s unlimited
+for j in 1 2 4
 do
   export KMP_HW_SUBSET=${j}T
   #echo $KMP_HW_SUBSET
@@ -21,7 +21,7 @@ do
        rm $outfile
        mpirun -np $mpi ./su3_clov &> $outfile
      done
-  done
+  #done
 done
 
 
